@@ -1,6 +1,7 @@
 ﻿using Microsoft.SemanticKernel;
 using System.Text.RegularExpressions;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
+using System.Text;
 using Plugins;
 
 class Program
@@ -90,7 +91,9 @@ SQLite 所有人每日收支資料內容：
                 MaxTokens = 2000 // 控制回答的長度
             }
         );
-
+        // 設定控制台編碼為 UTF-8 , 以支援中文輸入和輸出
+        Console.InputEncoding = Encoding.UTF8; // 設定輸入編碼為 UTF-8
+        Console.OutputEncoding = Encoding.UTF8; // 設定輸出編碼為 UTF-8
         // 取得使用者名稱
         Console.Write("\n請輸入使用者名稱 (輸入 exit 離開): ");
         var userNameInput = Console.ReadLine();
